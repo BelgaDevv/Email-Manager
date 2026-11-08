@@ -1,29 +1,49 @@
-### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
+# Java - arquivos compilados
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.metadata/
+.settings/
+.project
 .classpath
 .factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+
+# Build
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+target/
+build/
+out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# IntelliJ IDEA
+.idea/
+*.iml
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Mac OS ###
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# Sistema operacional
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+!.env.example
+
+# Configurações locais
+application-local.properties
