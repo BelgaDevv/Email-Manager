@@ -1,4 +1,69 @@
+
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmailMessage {
+
+  private String sender;
+  private String subject;
+  private String content;
+
+  private List<String> recipients = new ArrayList<>();
+  private List<EmailAttachment> attachments = new ArrayList<>();
+
+  private ContentType contentType;
+
+  public String getSender() {
+    return sender;
+  }
+
+  public void setSender(String sender) {
+    this.sender = sender;
+  }
+
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public List<String> getRecipients() {
+    return recipients;
+  }
+
+  public void addRecipient(String recipient) {
+    recipients.add(recipient);
+  }
+
+  public void setRecipients(List<String> recipients) {
+    this.recipients = new ArrayList<>(recipients);
+  }
+
+  public List<EmailAttachment> getAttachments() {
+    return attachments;
+  }
+
+  public void addAttachment(EmailAttachment attachment) {
+    attachments.add(attachment);
+  }
+
+  public ContentType getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(ContentType contentType) {
+    this.contentType = contentType;
+  }
 }

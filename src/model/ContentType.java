@@ -1,4 +1,7 @@
+
 package model;
 
-public class ContentType {
+public enum ContentType {
+  TEXT,
+  HTML
 }
