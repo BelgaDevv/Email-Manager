@@ -3,6 +3,8 @@ package app;
 import adapter.MockEmailAdapter;
 import adapter.EmailSender;
 import builder.EmailMessageBuilder;
+import factory.EmailSenderFactory;
+import factory.MockSenderFactory;
 import model.EmailMessage;
 import model.EmailSendResult;
 import model.ContentType;
@@ -12,9 +14,9 @@ public class Main {
 
   public static void main(String[] args) {
 
-    MockMailService service = new MockMailService();
+    EmailSenderFactory factory = new MockSenderFactory();
 
-    EmailSender sender = new MockEmailAdapter(service);
+    EmailSender sender = factory.createSender();
 
     EmailMessage message = new EmailMessageBuilder()
         .setSender("teste@email.com")
