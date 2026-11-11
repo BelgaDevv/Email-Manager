@@ -12,58 +12,62 @@ import java.util.List;
 
 public class EmailController {
 
-    private final EmailFacade emailFacade;
+  private final EmailFacade emailFacade;
 
-    public EmailController(EmailFacade emailFacade) {
-        this.emailFacade = emailFacade;
+  public EmailController(EmailFacade emailFacade) {
+    this.emailFacade = emailFacade;
+  }
+
+  public EmailMessage composeEmail(
+      String sender,
+      List<String> recipients,
+      String subject,
+      String content,
+      ContentType contentType,
+      List<EmailAttachment> attachments) {
+
+    EmailMessageBuilder builder = new EmailMessageBuilder()
+        .setSender(sender)
+        .setSubject(subject)
+        .setContent(content)
+        .setContentType(contentType);
+
+    if (recipients != null) {
+      for (String recipient : recipients) {
+        builder.addRecipient(recipient);
+      }
     }
 
-    public EmailMessage composeEmail(
-            String sender,
-            List<String> recipients,
-            String subject,
-            String content,
-            ContentType contentType,
-            List<EmailAttachment> attachments) {
-
-        EmailMessageBuilder builder = new EmailMessageBuilder()
-                .setSender(sender)
-                .setSubject(subject)
-                .setContent(content)
-                .setContentType(contentType);
-
-        for (String recipient : recipients) {
-            builder.addRecipient(recipient);
-        }
-
-        for (EmailAttachment attachment : attachments) {
-            builder.addAttachment(attachment);
-        }
-
-        return builder.build();
+    if (attachments != null) {
+      for (EmailAttachment attachment : attachments) {
+        builder.addAttachment(attachment);
+      }
     }
 
-    public List<EmailSendResult> sendEmail(EmailMessage email) {
-        return emailFacade.sendEmail(email);
-    }
+    return builder.build();
+  }
 
-    public List<EmailSendResult> composeAndSendEmail(
-            String sender,
-            List<String> recipients,
-            String subject,
-            String content,
-            ContentType contentType,
-            List<EmailAttachment> attachments) {
+  public List<EmailSendResult> sendEmail(EmailMessage email) {
+    return emailFacade.sendEmail(email);
+  }
 
-        EmailMessage email = composeEmail(
-                sender,
-                recipients,
-                subject,
-                content,
-                contentType,
-                attachments
-        );
+  public List<EmailSendResult> composeAndSendEmail(
+      String sender,
+      List<String> recipients,
+      String subject,
+      String content,
+      ContentType contentType,
+      List<EmailAttachment> attachments) {
 
-        return sendEmail(email);
-    }
+    EmailMessage email = composeEmail(
+        sender,
+        recipients,
+        subject,
+        content,
+        contentType,
+        attachments
+    );
+
+    return sendEmail(email);
+  }
 }

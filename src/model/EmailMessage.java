@@ -63,12 +63,10 @@ public class EmailMessage {
     return type;
   }
 
-  public void setContentType(ContentType contentType) {
+  public void setContentType(ContentType type) {
     this.type = type;
   }
 
-  public ContentType getType() {
-    return type;
-  }
+
 
 }

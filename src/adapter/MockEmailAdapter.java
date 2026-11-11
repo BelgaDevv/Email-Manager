@@ -22,7 +22,7 @@ public class MockEmailAdapter implements EmailSender {
         message.getRecipients(),
         message.getSubject(),
         message.getContent(),
-        message.getType().name()
+        message.getContentType().name()
     );
 
     EmailStatus status = success

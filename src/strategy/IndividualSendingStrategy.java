@@ -22,7 +22,7 @@ public class IndividualSendingStrategy implements EmailSendingStrategy {
           .setSender(message.getSender())
           .setSubject(message.getSubject())
           .setContent(message.getContent())
-          .setContentType(message.getType())
+          .setContentType(message.getContentType())
           .addRecipient(recipient)
           .build();
 
