@@ -8,42 +8,33 @@
 # Eclipse
 .metadata/
 .settings/
-.project
-.classpath
+bin/
 .factorypath
 
-# Build
-bin/
-target/
-build/
-out/
-
-# IntelliJ IDEA
+# IntelliJ
 .idea/
 *.iml
 
-# VS Code
-.vscode/
 
-# Logs
-*.log
-logs/
-
-# Arquivos temporários
+# Temp file:
 *.tmp
 *.temp
 *.swp
 *.bak
 
-# Sistema operacional
+# Logs
+*.log
+logs/
+
+# SO
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Variáveis de ambiente e credenciais
+# Environment variable
 .env
 .env.*
 !.env.example
 
-# Configurações locais
+# local config
 application-local.properties
