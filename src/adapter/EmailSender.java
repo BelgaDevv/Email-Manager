@@ -1,4 +1,10 @@
 package adapter;
 
-public class EmailSender {
+import model.EmailMessage;
+import model.EmailSendResult;
+
+public interface EmailSender {
+
+  EmailSendResult send(EmailMessage message);
+
 }

@@ -13,7 +13,7 @@ public class EmailMessage {
   private List<String> recipients = new ArrayList<>();
   private List<EmailAttachment> attachments = new ArrayList<>();
 
-  private ContentType contentType;
+  private ContentType type = ContentType.TEXT ;
 
   public String getSender() {
     return sender;
@@ -60,10 +60,15 @@ public class EmailMessage {
   }
 
   public ContentType getContentType() {
-    return contentType;
+    return type;
   }
 
   public void setContentType(ContentType contentType) {
-    this.contentType = contentType;
+    this.type = type;
   }
+
+  public ContentType getType() {
+    return type;
+  }
+
 }
